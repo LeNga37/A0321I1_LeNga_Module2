@@ -1,5 +1,7 @@
 package bai_1_introduction_to_java.thuc_hanh.giai_phuong_trinh_bac_nhat;
+
 import java.util.Scanner;
+
 public class LinearEquationResolver {
     public static void main(String[] args) {
         System.out.println("Linear Equation Resolver");
