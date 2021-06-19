@@ -1,7 +1,7 @@
 package bai_1_introduction_to_java.bai_tap.hien_thi_loi_chao;
 import java.util.Scanner;
 
-public class HienThiLoiChao {
+public class Hello {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your name: ");
