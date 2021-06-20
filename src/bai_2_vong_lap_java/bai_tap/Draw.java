@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Draw {
     public static void main(String[] args) {
-        int choice;
+        int choice = -1;
         Scanner input = new Scanner(System.in);
         System.out.println("1: Print the rectangle");
         System.out.println("2: Print the square triangle");
