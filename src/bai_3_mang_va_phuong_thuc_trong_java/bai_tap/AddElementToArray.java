@@ -11,7 +11,7 @@ public class AddElementToArray {
         int num = input.nextInt();
         System.out.print("Nhap vi tri index ban chan chen gia tri num vao: ");
         int index = input.nextInt();
-        if (index <= 1 || index >= array.length - 1) {
+        if (index < 0 || index >= array.length - 1) {
             System.out.print("Khong chen duoc phan tu vao mang.");
         } else {
             for (int i = 0; i < index; i++) {
