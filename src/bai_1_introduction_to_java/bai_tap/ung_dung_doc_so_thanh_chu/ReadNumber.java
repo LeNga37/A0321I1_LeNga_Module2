@@ -8,15 +8,16 @@ public class ReadNumber {
     final static String[] TENS = {" ", " ", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 
     public static void readNumber(int num, String value) {
-        System.out.println(num > 19 ? TENS[num / 10] + " " + ONES[num % 10] : ONES[num]);
-        System.out.println(num > 0 ? value : "");
+        System.out.print(num > 19 ? TENS[num / 10] + " " + ONES[num % 10] : ONES[num]);
+        System.out.print(num > 0 ? value : "");
 
     }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        System.out.print("Enter a number: ");
         int num = input.nextInt();
-        readNumber(((num / 100) % 10), "Hundred and");
+        readNumber(((num / 100)), "Hundred and");
         readNumber(num % 100, "");
     }
 
