@@ -1,7 +1,5 @@
 package bai_3_mang_va_phuong_thuc_trong_java.bai_tap;
 
-import sun.awt.Symbol;
-
 import java.util.Scanner;
 
 public class SumOneColumn {
@@ -11,7 +9,7 @@ public class SumOneColumn {
         int column = input.nextInt();
         float sum = 0;
         for (int i = 0; i < array.length; i++) {
-            sum += array[i][column];
+            sum += array[i][column - 1];
         }
         return sum;
     }
@@ -45,12 +43,14 @@ public class SumOneColumn {
                 matrix[i][j] = input.nextFloat();
             }
         }
+        System.out.println("Mang 2 chieu da nhap la: ");
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
         }
+//        System.out.print("Tong cua cot ban muon tinh tong la: ");
         float sum = sumColumn(matrix);
         System.out.println(sum);
 
