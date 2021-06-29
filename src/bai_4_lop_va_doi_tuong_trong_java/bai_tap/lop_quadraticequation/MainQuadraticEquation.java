@@ -2,7 +2,7 @@ package bai_4_lop_va_doi_tuong_trong_java.bai_tap.lop_quadraticequation;
 
 import java.util.Scanner;
 
-public class Main {
+public class MainQuadraticEquation {
     public static void main(String[] args) {
         double a;
         Scanner input=new Scanner(System.in);
@@ -19,7 +19,6 @@ public class Main {
         double c=input.nextDouble();
         QuadraticEquation quadraticEquation=new QuadraticEquation(a,b,c);
         double delta=quadraticEquation.getDiscriminant();
-        System.out.println(delta);
         if(delta>0){
             double r1=quadraticEquation.getRoot1();
             System.out.println("Nghiem thu nhat la: "+r1);
