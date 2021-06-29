@@ -42,6 +42,7 @@ public class QuadraticEquation {
     public double getRoot2() {
         return r2 = (-b - Math.pow(delta, 0.5)) / 2 * a;
     }
+
     public double getRoot() {
         return r = -b / 2 * a;
     }
