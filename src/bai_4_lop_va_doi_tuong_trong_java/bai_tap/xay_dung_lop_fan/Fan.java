@@ -1,13 +1,13 @@
 package bai_4_lop_va_doi_tuong_trong_java.bai_tap.xay_dung_lop_fan;
 
 public class Fan {
-    final int slow = 1;
-    final int medium = 2;
-    final int fast = 3;
-    int speed = slow;
-    boolean on = false;
-    double radius = 5;
-    String color = "blue";
+    public static final int SLOW = 1;
+    public static final int MEDIUM = 2;
+    public static final int FAST = 3;
+    private int speed = SLOW;
+    private boolean on = false;
+    private double radius = 5;
+    private String color = "blue";
 
     public Fan() {
 
@@ -53,10 +53,14 @@ public class Fan {
     }
 
     public String toString() {
-        if (on) {
-            return speed + " " + color + " " + radius + " fan is on";
-        } else {
-            return speed + " " + color + " " + radius + " fan is off";
-        }
+//        if (on) {
+//            return "speed=" + speed+" " + "color=" +color+ " " + "radius="+radius + " fan is on";
+//        } else {
+//            return "speed=" + speed+" " + "color=" +color+ " " + "radius="+radius + " fan is off";
+//        }
+
+        //toan tu 3 ngoi
+        return on? "speed=" + speed+" " + "color=" +color+ " " + "radius="+radius + " fan is on":
+                "speed=" + speed+" " + "color=" +color+ " " + "radius="+radius + " fan is off";
     }
 }

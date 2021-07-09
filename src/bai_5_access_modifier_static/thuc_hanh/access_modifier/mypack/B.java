@@ -1,7 +1,7 @@
 package bai_5_access_modifier_static.thuc_hanh.access_modifier.mypack;
 
- public class B {
-    public static void main(String args[]){
+public class B {
+    public static void main(String args[]) {
 
 //        A obj = new A();//Compile Time Error
 //
