@@ -42,7 +42,7 @@ public class Circle {
         return "Circle{" +
                 "radius=" + radius + //getRadius()
                 ", color='" + color + '\'' + //getColor()
-                " Area = "+getArea()+
-                " Perimeter = "+getPerimeter()+'}';
+                " Area = " + getArea() +
+                " Perimeter = " + getPerimeter() + '}';
     }
 }

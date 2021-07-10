@@ -25,13 +25,14 @@ public class Cylinder extends Circle {
     }
 
     public double getVolume() {
-        return getHeight()* getRadius() * getRadius() * Math.PI;
+        return getHeight() * getRadius() * getRadius() * Math.PI;
     }
-    public String toString(){
+
+    public String toString() {
         return "Cylinder{" +
                 "radius=" + getRadius() +
                 ", color='" + getColor() + '\'' +
-                " Volume = "+getVolume()+
+                " Volume = " + getVolume() +
                 '}';
     }
 }
