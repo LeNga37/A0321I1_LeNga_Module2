@@ -6,9 +6,9 @@ public class TestMainCircleCylinder {
         circle = new Circle(4.7, "yellow");
         System.out.println(circle);
 
-        Circle circle1 = new Cylinder();
-        circle1 = new Cylinder(4.7, 2.3, "blue");
-        System.out.println(circle1);
+        Circle cylinder = new Cylinder();
+        cylinder = new Cylinder(4.7, 2.3, "blue");
+        System.out.println(cylinder);
 
     }
 }

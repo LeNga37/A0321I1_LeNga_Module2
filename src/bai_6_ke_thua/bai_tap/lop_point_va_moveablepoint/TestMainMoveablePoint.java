@@ -7,10 +7,10 @@ public class TestMainMoveablePoint {
         point = new Point(2.5f, 3.5f);
         System.out.println(point);
 
-        Point point1 = new MovablePoint();
-        System.out.println(point1);
-        point1 = new MovablePoint(point.getX(), point.getY(), 4.5f, 5.5f);
-        System.out.println(point1);
+        Point movablePoint = new MovablePoint();
+        System.out.println(movablePoint);
+        movablePoint = new MovablePoint(point.getX(), point.getY(), 4.5f, 5.5f);
+        System.out.println(movablePoint);
 
     }
 }

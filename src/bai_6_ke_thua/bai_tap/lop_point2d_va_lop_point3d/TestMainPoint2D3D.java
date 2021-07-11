@@ -7,10 +7,10 @@ public class TestMainPoint2D3D {
         point2D = new Point2D(3.7f, 4.7f);
         System.out.println(point2D);
 
-        Point2D point2D1 = new Point3D();
-        System.out.println(point2D1);
-        point2D1 = new Point3D(3.7f, 4.7f, 5.7f);
-        System.out.println(point2D1);
+        Point2D point3D = new Point3D();
+        System.out.println(point3D);
+        point3D = new Point3D(3.7f, 4.7f, 5.7f);
+        System.out.println(point3D);
 
     }
 }
