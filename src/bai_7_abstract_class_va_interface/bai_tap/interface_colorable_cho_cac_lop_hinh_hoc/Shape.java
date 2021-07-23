@@ -1,6 +1,6 @@
 package bai_7_abstract_class_va_interface.bai_tap.interface_colorable_cho_cac_lop_hinh_hoc;
 
-public class Shape{
+public abstract class Shape{
     private String color="green";
     private boolean filled=true;
     public Shape(){
@@ -38,5 +38,5 @@ public class Shape{
                 + (isFilled() ? "filled" : "not filled");
     }
 
-//    public abstract double getArea();
+    public abstract double getArea();
 }

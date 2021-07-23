@@ -2,22 +2,25 @@ package bai_7_abstract_class_va_interface.bai_tap.interface_colorable_cho_cac_lo
 
 public class ColorableTest {
     public static void main(String[] args) {
-        Shape[] shapes=new Shape[3];
-        shapes[0]=new Circle(3.7);
-        shapes[1]=new Rectangle(4.7,5.7);
-        shapes[2]=new Square( 5.8, "yellow", true);
-        for(Shape shape:shapes){
-            if(shape instanceof Circle){
-                System.out.println("Area of a Circle: "+((Circle)shape).getArea());
-            }
-            if(shape instanceof Rectangle){
-                System.out.println("Area of a Rectangle: "+ ((Rectangle)shape).getArea());
-            }
-            if(shape instanceof Square){
-                System.out.println("Area of a Square: "+ ((Square)shape).getArea());
+        Shape[] shapes = new Shape[3];
+        shapes[0] = new Circle(3.7);
+        shapes[1] = new Rectangle(4.7, 5.7);
+        shapes[2] = new Square(5.8, "yellow", true);
+        for (Shape shape : shapes) {
+            System.out.println(shape.getArea());
+            if (shape instanceof Square) {
                 ((Colorable) shape).howToColor();
             }
-
+//            if(shape instanceof Circle){
+//                System.out.println("Area of a Circle: "+((Circle)shape).getArea());
+//            }
+//            if(shape instanceof Rectangle){
+//                System.out.println("Area of a Rectangle: "+ ((Rectangle)shape).getArea());
+//            }
+//            if(shape instanceof Square){
+//                System.out.println("Area of a Square: "+ ((Square)shape).getArea());
+//                ((Colorable) shape).howToColor();
+//            }
         }
     }
 }

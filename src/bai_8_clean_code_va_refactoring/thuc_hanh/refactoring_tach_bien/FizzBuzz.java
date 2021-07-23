@@ -1,16 +1,16 @@
 package bai_8_clean_code_va_refactoring.thuc_hanh.refactoring_tach_bien;
 
 public class FizzBuzz {
-    public static String fizzBuzz(int number){
-        boolean isFizz=number%3==0;
-        boolean isBuzz=number%5==0;
-        if(isFizz && isBuzz)
+    public static String fizzBuzz(int number) {
+        boolean isFizz = number % 3 == 0;
+        boolean isBuzz = number % 5 == 0;
+        if (isFizz && isBuzz)
             return "FizzBuzz";
 
-        if(isFizz)
+        if (isFizz)
             return "Fizz";
 
-        if(isBuzz)
+        if (isBuzz)
             return "Buzz";
 
         return number + "";

@@ -2,6 +2,7 @@ package bai_8_clean_code_va_refactoring.thuc_hanh.refactoring_doi_ten_bien_va_ta
 
 //import org.junit.Test;
 //import org.junit.jupiter.api.DisplayName;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -67,7 +68,9 @@ public class CalculatorTest {
         char operator = '/';
 
         assertThrows(RuntimeException.class,
-                ()-> {Calculator.calculate(firstOperand, secondOperand, operator);});
+                () -> {
+                    Calculator.calculate(firstOperand, secondOperand, operator);
+                });
     }
 
     @Test
@@ -78,6 +81,8 @@ public class CalculatorTest {
         char operator = '=';
 
         assertThrows(RuntimeException.class,
-                ()-> {Calculator.calculate(firstOperand, secondOperand, operator);});
+                () -> {
+                    Calculator.calculate(firstOperand, secondOperand, operator);
+                });
     }
 }
