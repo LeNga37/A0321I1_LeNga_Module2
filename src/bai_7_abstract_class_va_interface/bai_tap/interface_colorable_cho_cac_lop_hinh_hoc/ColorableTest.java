@@ -22,9 +22,9 @@ public class ColorableTest {
 //                System.out.println("Area of a Square: "+ ((Square)shape).getArea());
 //                ((Colorable) shape).howToColor();
 //            }
-            if (item instanceof Colorable) {
-                ((Colorable) item).howToColor();
-            }
+//            if (item instanceof Colorable) {
+//                ((Colorable) item).howToColor();
+//            }
         }
     }
 }

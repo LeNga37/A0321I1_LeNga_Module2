@@ -73,5 +73,51 @@ public class TennisGame {
     }
 }
 
+//public class TennisGame {
+//
+//    public static String getScore(int scoreFirstPlayer, int scoreSecondPlayer) {
+//        String resultScore = "";
+//
+//        if (scoreFirstPlayer == 4 && scoreSecondPlayer == 4) {
+//            resultScore = "Deuce";
+//        }
+//        if (scoreFirstPlayer < 4 && scoreSecondPlayer < 4) {
+//            resultScore = scoreFirstPlayer == scoreSecondPlayer ? getNameScore(scoreFirstPlayer) + "-All" : getNameScore(scoreFirstPlayer) + "-" + getNameScore(scoreSecondPlayer);
+//        }
+//        else {
+//            int scoreDifference = scoreFirstPlayer > scoreSecondPlayer   ? scoreFirstPlayer - scoreSecondPlayer : scoreSecondPlayer - scoreFirstPlayer;
+//            String winner = scoreFirstPlayer > scoreSecondPlayer    ? "player1" : "player2";
+//
+//            resultScore = scoreDifference >= 2 ?  "Win to " + winner : "Advantage " + winner;
+//        }
+//
+//        return resultScore;
+//    }
+//
+//    public static String getNameScore(int score) {
+//        String nameScore;
+//        switch (score) {
+//            case 0:
+//                nameScore = "Love";
+//                break;
+//            case 1:
+//                nameScore = "Fifteen";
+//                break;
+//            case 2:
+//                nameScore = "Thirty";
+//                break;
+//            case 3:
+//                nameScore = "Forty";
+//                break;
+//            default:
+//                nameScore = "";
+//                break;
+//        }
+//
+//        return nameScore;
+//    }
+//
+//}
+
 
 
