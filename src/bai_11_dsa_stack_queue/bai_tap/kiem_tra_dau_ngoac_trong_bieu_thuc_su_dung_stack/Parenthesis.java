@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Parenthesis {
-    public boolean checkParenthesis(String str ) {
+    public boolean checkParenthesis(String str) {
         Stack<Character> bStack = new Stack<>();
         for (int i = 0; i < str.length(); i++) {
             char sym = str.charAt(i);
@@ -13,12 +13,12 @@ public class Parenthesis {
             } else if (sym == ')') {
                 if (bStack.isEmpty()) {
                     return false;
-                } else if(bStack.pop()!='('){
+                } else if (bStack.pop() != '(') {
                     return false;
                 }
             }
         }
-        if(bStack.isEmpty()){
+        if (bStack.isEmpty()) {
             return true;
         }
         return false;
@@ -28,7 +28,7 @@ public class Parenthesis {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhap giai thuat can kiem tra: ");
         String string = input.nextLine();
-        Parenthesis parenthesis=new Parenthesis();
+        Parenthesis parenthesis = new Parenthesis();
         System.out.println(parenthesis.checkParenthesis(string));
     }
 

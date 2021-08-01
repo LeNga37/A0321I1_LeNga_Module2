@@ -2,7 +2,7 @@ package bai_11_dsa_stack_queue.thuc_hanh._trien_khai_stack_su_dung_mang;
 
 public class StackClient {
     public static void main(String[] args) throws Exception {
-        MyStack stack=new MyStack(5);
+        MyStack stack = new MyStack(5);
 
         stack.push(5);
         stack.push(4);

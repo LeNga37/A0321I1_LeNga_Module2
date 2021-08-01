@@ -4,18 +4,18 @@ import java.util.Stack;
 
 public class ReverseIntegerArray {
     public static void main(String[] args) {
-        Stack<Integer> stack=new Stack<>();
-        int[] integerArray={1,2,3,4,5,6,7,8,9};
-        for(int i=0;i<integerArray.length;i++){
+        Stack<Integer> stack = new Stack<>();
+        int[] integerArray = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        for (int i = 0; i < integerArray.length; i++) {
             stack.push(integerArray[i]);
         }
         System.out.println("Mang ban dau: ");
-        for(int i=0;i<integerArray.length;i++){
-            System.out.printf(integerArray[i]+"\t");
+        for (int i = 0; i < integerArray.length; i++) {
+            System.out.printf(integerArray[i] + "\t");
         }
         System.out.println("Mang sau khi dao nguoc: ");
-        for(int i=0;i<integerArray.length;i++){
-            System.out.printf((stack.pop()+"\t"));
+        for (int i = 0; i < integerArray.length; i++) {
+            System.out.printf((stack.pop() + "\t"));
         }
     }
 }

@@ -3,7 +3,7 @@ package bai_11_dsa_stack_queue.bai_tap.optional_chuyen_doi_tu_he_thap_phan_sang_
 public class Test {
     public static void main(String[] args) {
         int decimalNumber = 84747;
-        System.out.println("He nhi phan cua "+decimalNumber+" la: ");
+        System.out.println("He nhi phan cua " + decimalNumber + " la: ");
         new DecimalToBinary().convertBinary(decimalNumber);
     }
 }
