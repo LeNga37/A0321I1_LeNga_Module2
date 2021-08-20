@@ -2,7 +2,7 @@ package furamaResort.models;
 
 public class Employee extends Person {
     private String lever;
-    private String position;
+    private String position;//vi tri
     private float salary;
 
     public Employee() {
@@ -15,7 +15,7 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
-    public Employee(String id, String name, String dateOfBirth, String gender, double identityCardNumber, double phoneNumber, String email, String lever, String position, float salary) {
+    public Employee(int id, String name, String dateOfBirth, String gender, double identityCardNumber, double phoneNumber, String email, String lever, String position, float salary) {
         super(id, name, dateOfBirth, gender, identityCardNumber, phoneNumber, email);
         this.lever = lever;
         this.position = position;
@@ -48,11 +48,13 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                super.toString() +
-                "lever='" + lever + '\'' +
-                ", position='" + position + '\'' +
-                ", salary=" + salary +
-                '}';
+        return this.getId() + "," + this.getName() + "," + this.getDateOfBirth() + "," + this.getGender() + "," +
+                this.getIdentityCardNumber() + "," + this.getPhoneNumber() + "," + this.getEmail() + lever + "," + position +
+                "," + salary;
+//                super.toString() +
+//                "lever='" + lever + '\'' +
+//                ", position='" + position + '\'' +
+//                ", salary=" + salary +
+//                '}';
     }
 }

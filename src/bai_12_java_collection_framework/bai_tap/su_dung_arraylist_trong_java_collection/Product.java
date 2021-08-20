@@ -12,6 +12,9 @@ public class Product {
         this.price = price;
     }
 
+    public Product(int i, String iphone5, String usa, int i1, String aNew) {
+    }
+
     public int getId() {
         return id;
     }
