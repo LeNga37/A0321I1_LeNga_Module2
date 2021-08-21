@@ -38,7 +38,8 @@ public class Customer extends Person {
     @Override
     public String toString() {
         return this.getId() + "," + this.getName() + "," + this.getDateOfBirth() + "," + this.getGender() + "," +
-                this.getIdentityCardNumber() + "," + this.getPhoneNumber() + "," + this.getEmail() + customerType + "," + address;
+                this.getIdentityCardNumber() + "," + this.getPhoneNumber() + "," + this.getEmail() + this.customerType +
+                "," + this.address;
 //                "Customer{" +
 //                super.toString() +
 //                "customerType='" + customerType + '\'' +

@@ -39,7 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 //        } while (true);
 //    }
 
-    public static void displayListEmployee() {
+    public static void displayEmployeeList() {
         for (Employee employee : employeeList) {
             System.out.println(employee);
         }
@@ -99,61 +99,111 @@ public class EmployeeServiceImpl implements EmployeeService {
                         + "6. Email employee \n"
                         + "7. Lever employee \n"
                         + "8. Position employee \n"
-                        + "9. Salary employee \n"
-                        + "10. Back to menu \n");
+                        + "9. Salary employee \n");
+//                        + "10. Back to menu \n");
                 choice = input.nextInt();
                 input.skip("\\R");
-            } while (choice < 1 || choice > 9);
-            switch (choice) {
-                case 1:
-                    System.out.println("Please enter name");
-                    String newName = input.nextLine();
-                    employee.setName(newName);
-                    break;
-                case 2:
-                    System.out.println("Please enter dateOfBirth");
-                    String newDateOfBirth = input.nextLine();
-                    employee.setDateOfBirth(newDateOfBirth);
-                    break;
-                case 3:
-                    System.out.println("Please enter gender");
-                    String newGender = input.nextLine();
-                    employee.setGender(newGender);
-                    break;
-                case 4:
-                    System.out.println("Please enter identityCardNumber");
-                    double newIdentityCardNumber = input.nextDouble();
-                    employee.setIdentityCardNumber(newIdentityCardNumber);
-                    break;
-                case 5:
-                    System.out.println("Please enter phoneNumber");
-                    double newPhoneNumber = input.nextDouble();
-                    employee.setPhoneNumber(newPhoneNumber);
-                    break;
-                case 6:
-                    System.out.println("Please enter email");
-                    String newEmail = input.nextLine();
-                    employee.setEmail(newEmail);
-                    break;
-                case 7:
-                    System.out.println("Please enter lever");
-                    String newLever = input.nextLine();
-                    employee.setLever(newLever);
-                    break;
-                case 8:
-                    System.out.println("Please enter position");
-                    String newPosition = input.nextLine();
-                    employee.setDateOfBirth(newPosition);
-                    break;
-                case 9:
-                    System.out.println("Please enter position");
-                    float newSalary = input.nextFloat();
-                    employee.setSalary(newSalary);
-                    break;
+                switch (choice) {
+                    case 1:
+                        System.out.println("Please enter name");
+                        String newName = input.nextLine();
+                        employee.setName(newName);
+                        break;
+                    case 2:
+                        System.out.println("Please enter dateOfBirth");
+                        String newDateOfBirth = input.nextLine();
+                        employee.setDateOfBirth(newDateOfBirth);
+                        break;
+                    case 3:
+                        System.out.println("Please enter gender");
+                        String newGender = input.nextLine();
+                        employee.setGender(newGender);
+                        break;
+                    case 4:
+                        System.out.println("Please enter identityCardNumber");
+                        double newIdentityCardNumber = input.nextDouble();
+                        employee.setIdentityCardNumber(newIdentityCardNumber);
+                        break;
+                    case 5:
+                        System.out.println("Please enter phoneNumber");
+                        double newPhoneNumber = input.nextDouble();
+                        employee.setPhoneNumber(newPhoneNumber);
+                        break;
+                    case 6:
+                        System.out.println("Please enter email");
+                        String newEmail = input.nextLine();
+                        employee.setEmail(newEmail);
+                        break;
+                    case 7:
+                        System.out.println("Please enter lever");
+                        String newLever = input.nextLine();
+                        employee.setLever(newLever);
+                        break;
+                    case 8:
+                        System.out.println("Please enter position");
+                        String newPosition = input.nextLine();
+                        employee.setDateOfBirth(newPosition);
+                        break;
+                    case 9:
+                        System.out.println("Please enter position");
+                        float newSalary = input.nextFloat();
+                        employee.setSalary(newSalary);
+                        break;
 //                case 10:
 //                    displayMenu();
 //                    break;
-            }
+                }
+            } while (choice < 1 || choice > 9);
+//            switch (choice) {
+//                case 1:
+//                    System.out.println("Please enter name");
+//                    String newName = input.nextLine();
+//                    employee.setName(newName);
+//                    break;
+//                case 2:
+//                    System.out.println("Please enter dateOfBirth");
+//                    String newDateOfBirth = input.nextLine();
+//                    employee.setDateOfBirth(newDateOfBirth);
+//                    break;
+//                case 3:
+//                    System.out.println("Please enter gender");
+//                    String newGender = input.nextLine();
+//                    employee.setGender(newGender);
+//                    break;
+//                case 4:
+//                    System.out.println("Please enter identityCardNumber");
+//                    double newIdentityCardNumber = input.nextDouble();
+//                    employee.setIdentityCardNumber(newIdentityCardNumber);
+//                    break;
+//                case 5:
+//                    System.out.println("Please enter phoneNumber");
+//                    double newPhoneNumber = input.nextDouble();
+//                    employee.setPhoneNumber(newPhoneNumber);
+//                    break;
+//                case 6:
+//                    System.out.println("Please enter email");
+//                    String newEmail = input.nextLine();
+//                    employee.setEmail(newEmail);
+//                    break;
+//                case 7:
+//                    System.out.println("Please enter lever");
+//                    String newLever = input.nextLine();
+//                    employee.setLever(newLever);
+//                    break;
+//                case 8:
+//                    System.out.println("Please enter position");
+//                    String newPosition = input.nextLine();
+//                    employee.setDateOfBirth(newPosition);
+//                    break;
+//                case 9:
+//                    System.out.println("Please enter position");
+//                    float newSalary = input.nextFloat();
+//                    employee.setSalary(newSalary);
+//                    break;
+////                case 10:
+////                    displayMenu();
+////                    break;
+//            }
         } else {
             System.out.println("Id is not found");
             editEmployee();

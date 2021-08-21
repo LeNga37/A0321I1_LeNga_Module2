@@ -10,8 +10,8 @@ public class Room extends Facility {
         this.freeService = freeService;
     }
 
-    public Room(String serviceName, float usableArea, double costRent, int maximum, String rentType, String freeService) {
-        super(serviceName, usableArea, costRent, maximum, rentType);
+    public Room(String serviceName, float usableArea, double costRent, int maxCapacity, String rentType, String freeService) {
+        super(serviceName, usableArea, costRent, maxCapacity, rentType);
         this.freeService = freeService;
     }
 
@@ -25,10 +25,12 @@ public class Room extends Facility {
 
     @Override
     public String toString() {
-        return "Room{" +
-                super.toString() +
-                "freeService='" + freeService + '\'' +
-                '}';
+        return this.getServiceName() + "," + this.getUsableArea() + "," + this.getCostRent() + "," + this.getMaxCapacity() + "," +
+                this.getRenType() + "," + this.freeService;
+//                "Room{" +
+//                super.toString() +
+//                "freeService='" + freeService + '\'' +
+//                '}';
     }
 }
 //1. Xây dựng abstract class Facility (cơ sở vật chất) bao gồm các thông tin chung của tất cả dịch vụ cho thuê Villa, House, Room.

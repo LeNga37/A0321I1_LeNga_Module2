@@ -12,11 +12,11 @@ public abstract class Facility {
 
     }
 
-    public Facility(String nameService, float usableArea, double costRent, int maximum, String rentType) {
-        this.serviceName = nameService;
+    public Facility(String serviceName, float usableArea, double costRent, int maxCapacity, String rentType) {
+        this.serviceName = serviceName;
         this.usableArea = usableArea;
         this.costRent = costRent;
-        this.maxCapacity = maximum;
+        this.maxCapacity = maxCapacity;
         this.rentType = rentType;
     }
 
