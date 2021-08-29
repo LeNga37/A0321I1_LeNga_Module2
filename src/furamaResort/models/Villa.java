@@ -2,21 +2,21 @@ package furamaResort.models;
 
 public class Villa extends Facility {
     private String roomStandard; //tieu chuan phong
-    private float poolArea;//dien tich ho boi
-    private int totalFloor;//so tang
+    private String poolArea;//dien tich ho boi
+    private String totalFloor;//so tang
 
     public Villa() {
 
     }
 
-    public Villa(String roomStandard, float poolArea, int totalFloor) {
+    public Villa(String roomStandard, String poolArea, String totalFloor) {
         this.roomStandard = roomStandard;
         this.poolArea = poolArea;
         this.totalFloor = totalFloor;
     }
 
-    public Villa(String serviceName, float usableArea, double costRent, int maxCapacity, String rentType, String roomStandard, float poolArea, int totalFloor) {
-        super(serviceName, usableArea, costRent, maxCapacity, rentType);
+    public Villa(String id, String serviceName, String usableArea, String costRent, String maxCapacity, String rentType, String roomStandard, String poolArea, String totalFloor) {
+        super(id, serviceName, usableArea, costRent, maxCapacity, rentType);
         this.roomStandard = roomStandard;
         this.poolArea = poolArea;
         this.totalFloor = totalFloor;
@@ -30,25 +30,25 @@ public class Villa extends Facility {
         this.roomStandard = roomStandard;
     }
 
-    public float getPoolArea() {
+    public String getPoolArea() {
         return poolArea;
     }
 
-    public void setPoolArea(float poolArea) {
+    public void setPoolArea(String poolArea) {
         this.poolArea = poolArea;
     }
 
-    public int getTotalFloor() {
+    public String getTotalFloor() {
         return totalFloor;
     }
 
-    public void setTotalFloor(int totalFloor) {
+    public void setTotalFloor(String totalFloor) {
         this.totalFloor = totalFloor;
     }
 
     @Override
     public String toString() {
-        return this.getServiceName() + "," + this.getUsableArea() + "," + this.getCostRent() + "," + this.getMaxCapacity() + "," +
+        return this.getId() + "," + this.getServiceName() + "," + this.getUsableArea() + "," + this.getCostRent() + "," + this.getMaxCapacity() + "," +
                 this.getRenType() + "," + this.roomStandard + "," + this.poolArea + "," + this.totalFloor;
 //                "Villa{" +
 //                super.toString() +

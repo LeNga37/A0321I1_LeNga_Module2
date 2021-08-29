@@ -2,19 +2,19 @@ package furamaResort.models;
 
 public class House extends Facility {
     private String roomStandard;//tieu chuan phong
-    private int totalFloor;//so tang
+    private String totalFloor;//so tang
 
     public House() {
 
     }
 
-    public House(String roomStandard, int totalFloor) {
+    public House(String roomStandard, String totalFloor) {
         this.roomStandard = roomStandard;
         this.totalFloor = totalFloor;
     }
 
-    public House(String serviceName, float usableArea, double costRent, int maxCapacity, String rentType, String roomStandard, int totalFloor) {
-        super(serviceName, usableArea, costRent, maxCapacity, rentType);
+    public House(String id, String serviceName, String usableArea, String costRent, String maxCapacity, String rentType, String roomStandard, String totalFloor) {
+        super(id, serviceName, usableArea, costRent, maxCapacity, rentType);
         this.roomStandard = roomStandard;
         this.totalFloor = totalFloor;
     }
@@ -27,17 +27,17 @@ public class House extends Facility {
         this.roomStandard = roomStandard;
     }
 
-    public int getTotalFloor() {
+    public String getTotalFloor() {
         return totalFloor;
     }
 
-    public void setTotalFloor(int totalFloor) {
+    public void setTotalFloor(String totalFloor) {
         this.totalFloor = totalFloor;
     }
 
     @Override
     public String toString() {
-        return this.getServiceName() + "," + this.getUsableArea() + "," + this.getCostRent() + "," + this.getMaxCapacity() + "," +
+        return this.getId() + "," + this.getServiceName() + "," + this.getUsableArea() + "," + this.getCostRent() + "," + this.getMaxCapacity() + "," +
                 this.getRenType() + "," + this.roomStandard + "," + this.totalFloor;
 //                "House{" +
 //                super.toString() +

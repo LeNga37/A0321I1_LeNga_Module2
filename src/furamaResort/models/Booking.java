@@ -12,13 +12,13 @@ public class Booking {
 
     }
 
-    public Booking(String bookingId, String firstDay, String lastDay, String customerId, String serviceName, String serviceType){
-        this.bookingId=bookingId;
-        this.firstDay=firstDay;
-        this.lastDay=lastDay;
-        this.customerId=customerId;
-        this.serviceName=serviceName;
-        this.serviceType=serviceType;
+    public Booking(String bookingId, String firstDay, String lastDay, String customerId, String serviceName, String serviceType) {
+        this.bookingId = bookingId;
+        this.firstDay = firstDay;
+        this.lastDay = lastDay;
+        this.customerId = customerId;
+        this.serviceName = serviceName;
+        this.serviceType = serviceType;
     }
 
     public String getBookingId() {
@@ -61,23 +61,24 @@ public class Booking {
         this.serviceName = serviceName;
     }
 
-    public String getServiceType() {
-        return serviceType;
-    }
-
-    public void setServiceType(String serviceType) {
-        this.serviceType = serviceType;
-    }
+//    public String getServiceType() {
+//        return serviceType;
+//    }
+//
+//    public void setServiceType(String serviceType) {
+//        this.serviceType = serviceType;
+//    }
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "bookingId='" + bookingId + '\'' +
-                ", firstDay='" + firstDay + '\'' +
-                ", lastDay='" + lastDay + '\'' +
-                ", customerId='" + customerId + '\'' +
-                ", serviceName='" + serviceName + '\'' +
-                ", serviceType='" + serviceType + '\'' +
-                '}';
+        return bookingId + "," + firstDay + "," + lastDay + "," + customerId + "," + serviceName + "," + serviceType;
+//                "Booking{" +
+//                "bookingId='" + bookingId + '\'' +
+//                ", firstDay='" + firstDay + '\'' +
+//                ", lastDay='" + lastDay + '\'' +
+//                ", customerId='" + customerId + '\'' +
+//                ", serviceName='" + serviceName + '\'' +
+//                ", serviceType='" + serviceType + '\'' +
+//                '}';
     }
 }

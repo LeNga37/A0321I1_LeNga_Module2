@@ -1,23 +1,35 @@
 package furamaResort.models;
 
-public abstract class Facility {
+import java.io.Serializable;
+
+public abstract class Facility implements Serializable {
+    private String id;
     private String serviceName;
-    private float usableArea;//dien tich su dung
-    private double costRent;//chi phi thue
-    private int maxCapacity;//so nguoi toi da
-    private String rentType;//kieu thue
+    private String usableArea;//dien tich su dung
+    private String costRent;//chi phi thue
+    private String maxCapacity;//so nguoi toi da
+    private String rentType;//kieu thue: năm, tháng, ngày, giờ.
 
 
     public Facility() {
 
     }
 
-    public Facility(String serviceName, float usableArea, double costRent, int maxCapacity, String rentType) {
+    public Facility(String id, String serviceName, String usableArea, String costRent, String maxCapacity, String rentType) {
+        this.id = id;
         this.serviceName = serviceName;
         this.usableArea = usableArea;
         this.costRent = costRent;
         this.maxCapacity = maxCapacity;
         this.rentType = rentType;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getServiceName() {
@@ -28,27 +40,27 @@ public abstract class Facility {
         this.serviceName = serviceName;
     }
 
-    public float getUsableArea() {
+    public String getUsableArea() {
         return usableArea;
     }
 
-    public void setUsableArea(float usableArea) {
+    public void setUsableArea(String usableArea) {
         this.usableArea = usableArea;
     }
 
-    public double getCostRent() {
+    public String getCostRent() {
         return costRent;
     }
 
-    public void setCostRent(double costRent) {
+    public void setCostRent(String costRent) {
         this.costRent = costRent;
     }
 
-    public int getMaxCapacity() {
+    public String getMaxCapacity() {
         return maxCapacity;
     }
 
-    public void setMaxCapacity(int maxCapacity) {
+    public void setMaxCapacity(String maxCapacity) {
         this.maxCapacity = maxCapacity;
     }
 
@@ -62,13 +74,15 @@ public abstract class Facility {
 
     @Override
     public String toString() {
-        return "Facility{" +
-                "serviceName='" + serviceName + '\'' +
-                ", usableArea=" + usableArea +
-                ", costRent=" + costRent +
-                ", maximum=" + maxCapacity +
-                ", typeRent='" + rentType + '\'' +
-                '}';
+        return id + "," + serviceName + "," + usableArea + "," + costRent + "," + maxCapacity + "," + rentType;
+//                "Facility{" +
+//                "id=" + id +
+//                "serviceName='" + serviceName + '\'' +
+//                ", usableArea=" + usableArea +
+//                ", costRent=" + costRent +
+//                ", maximum=" + maxCapacity +
+//                ", typeRent='" + rentType + '\'' +
+//                '}';
     }
 }
 

@@ -3,15 +3,15 @@ package furamaResort.models;
 public class Contract {
     private String contractNumber;
     private String bookingId;
-    private float deposit; //tien coc
-    private float totalPayment;//tong tien thanh toan
+    private String deposit; //tien coc
+    private String totalPayment;//tong tien thanh toan
     private String customerId;
 
     public Contract() {
 
     }
 
-    public Contract(String contractNumber, String bookingId, float deposit, float totalPayment, String customerId) {
+    public Contract(String contractNumber, String bookingId, String deposit, String totalPayment, String customerId) {
         this.contractNumber = contractNumber;
         this.bookingId = bookingId;
         this.deposit = deposit;
@@ -35,19 +35,19 @@ public class Contract {
         this.bookingId = bookingId;
     }
 
-    public float getDeposit() {
+    public String getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(float deposit) {
+    public void setDeposit(String deposit) {
         this.deposit = deposit;
     }
 
-    public float getTotalPayment() {
+    public String getTotalPayment() {
         return totalPayment;
     }
 
-    public void setTotalPayment(float totalPayment) {
+    public void setTotalPayment(String totalPayment) {
         this.totalPayment = totalPayment;
     }
 
@@ -61,12 +61,13 @@ public class Contract {
 
     @Override
     public String toString() {
-        return "Contract{" +
-                "contractNumber='" + contractNumber + '\'' +
-                ", bookingId='" + bookingId + '\'' +
-                ", deposit=" + deposit +
-                ", totalPayment=" + totalPayment +
-                ", customerId='" + customerId + '\'' +
-                '}';
+        return contractNumber + "," + bookingId + "," + deposit + "," + totalPayment + "," + customerId;
+//                "Contract{" +
+//                "contractNumber='" + contractNumber + '\'' +
+//                ", bookingId='" + bookingId + '\'' +
+//                ", deposit=" + deposit +
+//                ", totalPayment=" + totalPayment +
+//                ", customerId='" + customerId + '\'' +
+//                '}';
     }
 }

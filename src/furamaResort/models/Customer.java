@@ -1,7 +1,9 @@
 package furamaResort.models;
 
-public class Customer extends Person {
-    private String customerType;//kieu khach hang
+import java.io.Serializable;
+
+public class Customer extends Person implements Serializable {
+    private String customerType;//kieu khach hang: Diamond, Platinium, Gold, Silver, Member
     private String address;
 
     public Customer() {
@@ -13,7 +15,7 @@ public class Customer extends Person {
         this.address = address;
     }
 
-    public Customer(int id, String name, String dateOfBirth, String gender, double identityCardNumber, double phoneNumber, String email, String customerType, String address) {
+    public Customer(String id, String name, String dateOfBirth, String gender, String identityCardNumber, String phoneNumber, String email, String customerType, String address) {
         super(id, name, dateOfBirth, gender, identityCardNumber, phoneNumber, email);
         this.customerType = customerType;
         this.address = address;
@@ -38,7 +40,7 @@ public class Customer extends Person {
     @Override
     public String toString() {
         return this.getId() + "," + this.getName() + "," + this.getDateOfBirth() + "," + this.getGender() + "," +
-                this.getIdentityCardNumber() + "," + this.getPhoneNumber() + "," + this.getEmail() + this.customerType +
+                this.getIdentityCardNumber() + "," + this.getPhoneNumber() + "," + this.getEmail() + "," + this.customerType +
                 "," + this.address;
 //                "Customer{" +
 //                super.toString() +

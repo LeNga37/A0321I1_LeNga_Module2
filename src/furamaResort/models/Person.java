@@ -1,18 +1,20 @@
 package furamaResort.models;
 
-public abstract class Person {
-    private int id;
+import java.io.Serializable;
+
+public abstract class Person implements Serializable {
+    private String id;
     private String name;
     private String dateOfBirth;
     private String gender;
-    private double identityCardNumber;
-    private double phoneNumber;
+    private String identityCardNumber;
+    private String phoneNumber;
     private String email;
 
     public Person() {
     }
 
-    public Person(int id, String name, String dateOfBirth, String gender, double identityCardNumber, double phoneNumber, String email) {
+    public Person(String id, String name, String dateOfBirth, String gender, String identityCardNumber, String phoneNumber, String email) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -22,11 +24,11 @@ public abstract class Person {
         this.email = email;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -54,19 +56,19 @@ public abstract class Person {
         this.gender = gender;
     }
 
-    public double getIdentityCardNumber() {
+    public String getIdentityCardNumber() {
         return identityCardNumber;
     }
 
-    public void setIdentityCardNumber(double identityCardNumber) {
+    public void setIdentityCardNumber(String identityCardNumber) {
         this.identityCardNumber = identityCardNumber;
     }
 
-    public double getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(double phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -80,7 +82,8 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return //id + "," + name + "," + dateOfBirth + "," + gender + "," + identityCardNumber + "," + phoneNumber+ "," + email;
+                "Person{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +

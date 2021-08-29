@@ -1,20 +1,14 @@
 package furamaResort.controllers;
 
-import furamaResort.services.CustomerServiceImpl;
-import furamaResort.services.EmployeeServiceImpl;
-import furamaResort.services.FacilityServiceImpl;
+import furamaResort.services.Impl.*;
 
 import java.util.Scanner;
 
 public class FuramaController {
     private static Scanner input = new Scanner(System.in);
-    private static EmployeeServiceImpl employeeServiceImpl = new EmployeeServiceImpl();
-    private static CustomerServiceImpl customerServiceImpl = new CustomerServiceImpl();
-    private static FacilityServiceImpl facilityServiceImpl = new FacilityServiceImpl();
 
     public static void displayMainMenu() {
         Scanner input = new Scanner(System.in);
-        int choice = 0;
 //        do {
         System.out.println("1.\tEmployee Management");
         System.out.println("2.\tCustomer Management");
@@ -23,7 +17,12 @@ public class FuramaController {
         System.out.println("5.\tPromotion Management");
         System.out.println("6.\tExit");
         System.out.println("Enter your choice: ");
-        choice = input.nextInt();
+        int choice = 0;
+        try{
+            choice = Integer.parseInt(input.nextLine());
+        }catch (NumberFormatException e){
+            System.out.println("Please re-enter the number");
+        }
 
         switch (choice) {
             case 1:
@@ -51,10 +50,7 @@ public class FuramaController {
     }
 
     public static void employeeManagement() {
-//        System.out.println("1.\tDisplay list employees");
-//        System.out.println("2.\tAdd new employees");
-//        System.out.println("3.\tEdit employee");
-//        System.out.println("4.\tReturn main menu");
+        EmployeeServiceImpl employeeServiceImpl = new EmployeeServiceImpl();
         int choice = -1;
         do {
             System.out.println("Please enter choice \n"
@@ -62,16 +58,21 @@ public class FuramaController {
                     + "2. Add new employee \n"
                     + "3. Edit employee \n"
                     + "4. Return main menu \n");
-            choice = input.nextInt();
+            try{
+                choice = Integer.parseInt(input.nextLine());
+            }catch (NumberFormatException e){
+                System.out.println("Please re-enter the number");
+            }
+
             switch (choice) {
                 case 1:
-                    employeeServiceImpl.displayEmployeeList();
+                    employeeServiceImpl.display();
                     break;
                 case 2:
-                    employeeServiceImpl.addEmployee();
+                    employeeServiceImpl.addNew();
                     break;
                 case 3:
-                    employeeServiceImpl.editEmployee();
+                    employeeServiceImpl.edit();
                     break;
                 case 4:
                     displayMainMenu();
@@ -80,10 +81,7 @@ public class FuramaController {
     }
 
     public static void customerManagement() {
-//        System.out.println("1.\tDisplay list customers");
-//        System.out.println("2.\tAdd new customer");
-//        System.out.println("3.\tEdit customer");
-//        System.out.println("4.\tReturn main menu");
+        CustomerServiceImpl customerServiceImpl = new CustomerServiceImpl();
         int choice = -1;
         do {
             System.out.println("Please enter choice \n"
@@ -91,16 +89,20 @@ public class FuramaController {
                     + "2. Add new customer \n"
                     + "3. Edit customer \n"
                     + "4. Return main menu \n");
-            choice = input.nextInt();
+            try{
+                choice = Integer.parseInt(input.nextLine());
+            }catch (NumberFormatException e){
+                System.out.println("Please re-enter the number");
+            }
             switch (choice) {
                 case 1:
-                    customerServiceImpl.displayCustomerList();
+                    customerServiceImpl.display();
                     break;
                 case 2:
-                    customerServiceImpl.addCustomer();
+                    customerServiceImpl.addNew();
                     break;
                 case 3:
-                    customerServiceImpl.editCustomer();
+                    customerServiceImpl.edit();
                     break;
                 case 4:
                     displayMainMenu();
@@ -109,10 +111,7 @@ public class FuramaController {
     }
 
     public static void facilityManagement() {
-//        System.out.println("1.\tDisplay list facility");
-//        System.out.println("2.\tAdd new facility");
-//        System.out.println("3.\tDisplay list facility maintenance");
-//        System.out.println("4.\tReturn main menu");
+        FacilityServiceImpl facilityServiceImpl = new FacilityServiceImpl();
         int choice = -1;
         do {
             System.out.println("Please enter choice \n"
@@ -120,13 +119,17 @@ public class FuramaController {
                     + "2. Add new facility \n"
                     + "3. Display facility list maintenance \n"
                     + "4. Return main menu \n");
-            choice = input.nextInt();
+            try{
+                choice = Integer.parseInt(input.nextLine());
+            }catch (NumberFormatException e){
+                System.out.println("Please re-enter the number");
+            }
             switch (choice) {
                 case 1:
-                    facilityServiceImpl.displayFacilityList();
+                    facilityServiceImpl.display();
                     break;
                 case 2:
-                    facilityServiceImpl.addFacility();
+                    facilityServiceImpl.addNew();
                     break;
                 case 3:
                     facilityServiceImpl.displayFacilityListMaintenance();
@@ -138,12 +141,42 @@ public class FuramaController {
     }
 
     public static void bookingManagement() {
-        System.out.println("1.\tAdd new booking");
-        System.out.println("2.\tDisplay list booking");
-        System.out.println("3.\tCreate new contracts");
-        System.out.println("4.\tDisplay list contracts");
-        System.out.println("5.\tEdit contracts");
-        System.out.println("6.\tReturn main menu");
+        BookingServiceImpl bookingServiceImpl = new BookingServiceImpl();
+        ContactServiceImpl contactServiceImpl =new ContactServiceImpl();
+        int choice = -1;
+        do {
+            System.out.println("Please enter choice \n"
+                    + "1. Add new booking \n"
+                    + "2. Display list booking \n"
+                    + "3. Create new contracts \n"
+                    + "4. Display list contracts \n"
+                    + "5. Edit contracts \n"
+                    + "6. Return main menu \n");
+            try{
+                choice = Integer.parseInt(input.nextLine());
+            }catch (NumberFormatException e){
+                System.out.println("Please re-enter the number");
+            }
+            switch (choice) {
+                case 1:
+                    bookingServiceImpl.addNew();
+                    break;
+                case 2:
+                    bookingServiceImpl.display();
+                    break;
+                case 3:
+                    contactServiceImpl.addNew();
+                    break;
+                case 4:
+                    contactServiceImpl.display();
+                    break;
+                case 5:
+                    contactServiceImpl.edit();
+                    break;
+                case 6:
+                    displayMainMenu();
+            }
+        } while (true);
     }
 
     public static void promotionManagement() {

@@ -1,4 +1,4 @@
-package furamaResort.utils;
+package furamaResort.utils.exception;
 
 public class AreaException extends Exception {
     public AreaException(String message) {

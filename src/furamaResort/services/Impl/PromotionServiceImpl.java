@@ -1,4 +1,15 @@
 package furamaResort.services.Impl;
 
-public class PromotionServiceImpl {
+import furamaResort.services.PromotionService;
+
+public class PromotionServiceImpl implements PromotionService {
+    @Override
+    public void displayCustomerListUseService() {
+
+    }
+
+    @Override
+    public void displayCustomerListGetVoucher() {
+
+    }
 }
