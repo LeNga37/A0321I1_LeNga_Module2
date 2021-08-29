@@ -36,7 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println("Please enter email");
         input.skip("\\R");
         String email = input.nextLine();
-        System.out.println("Please enter customerType");
+        System.out.println("Please enter customerType: Diamond, Platinium, Gold, Silver, Member");
         String customerType = input.nextLine();
         System.out.println("Please enter address");
         String address = input.nextLine();

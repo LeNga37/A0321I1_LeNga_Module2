@@ -1,5 +1,6 @@
 package furamaResort.services;
 
+import furamaResort.controllers.FuramaController;
 import furamaResort.models.Employee;
 
 import java.util.ArrayList;
@@ -9,35 +10,6 @@ import java.util.Scanner;
 public class EmployeeServiceImpl implements EmployeeService {
     private static List<Employee> employeeList = new ArrayList();
     private static Scanner input = new Scanner(System.in);
-
-//    public static void displayMenu() {
-//        int choice = -1;
-//        do {
-//            System.out.println("Please enter choice \n"
-//                    + "1. Display employee list \n"
-//                    + "2. Add employee \n"
-//                    + "3. Edit employee \n"
-////                    + "4. Delete employee \n"
-//                    + "4. Exit \n");
-//            choice = input.nextInt();
-//            switch (choice) {
-//                case 1:
-//                    displayListEmployee();
-//                    break;
-//                case 2:
-//                    addEmployee();
-//                    break;
-//                case 3:
-//                    editEmployee();
-//                    break;
-////                case 4:
-////                    deleteEmployee();
-////                    break;
-//                case 4:
-//                    System.exit(0);
-//            }
-//        } while (true);
-//    }
 
     public static void displayEmployeeList() {
         for (Employee employee : employeeList) {
@@ -99,8 +71,8 @@ public class EmployeeServiceImpl implements EmployeeService {
                         + "6. Email employee \n"
                         + "7. Lever employee \n"
                         + "8. Position employee \n"
-                        + "9. Salary employee \n");
-//                        + "10. Back to menu \n");
+                        + "9. Salary employee \n"
+                        + "10. Back to menu \n");
                 choice = input.nextInt();
                 input.skip("\\R");
                 switch (choice) {
@@ -145,65 +117,18 @@ public class EmployeeServiceImpl implements EmployeeService {
                         employee.setDateOfBirth(newPosition);
                         break;
                     case 9:
-                        System.out.println("Please enter position");
+                        System.out.println("Please enter salary");
                         float newSalary = input.nextFloat();
                         employee.setSalary(newSalary);
                         break;
-//                case 10:
-//                    displayMenu();
-//                    break;
+                    case 10:
+                        FuramaController.displayMainMenu();
+                        break;
+                    default:
+                        System.out.println("Please enter 1 ~ 10");
+                        editEmployee();
                 }
             } while (choice < 1 || choice > 9);
-//            switch (choice) {
-//                case 1:
-//                    System.out.println("Please enter name");
-//                    String newName = input.nextLine();
-//                    employee.setName(newName);
-//                    break;
-//                case 2:
-//                    System.out.println("Please enter dateOfBirth");
-//                    String newDateOfBirth = input.nextLine();
-//                    employee.setDateOfBirth(newDateOfBirth);
-//                    break;
-//                case 3:
-//                    System.out.println("Please enter gender");
-//                    String newGender = input.nextLine();
-//                    employee.setGender(newGender);
-//                    break;
-//                case 4:
-//                    System.out.println("Please enter identityCardNumber");
-//                    double newIdentityCardNumber = input.nextDouble();
-//                    employee.setIdentityCardNumber(newIdentityCardNumber);
-//                    break;
-//                case 5:
-//                    System.out.println("Please enter phoneNumber");
-//                    double newPhoneNumber = input.nextDouble();
-//                    employee.setPhoneNumber(newPhoneNumber);
-//                    break;
-//                case 6:
-//                    System.out.println("Please enter email");
-//                    String newEmail = input.nextLine();
-//                    employee.setEmail(newEmail);
-//                    break;
-//                case 7:
-//                    System.out.println("Please enter lever");
-//                    String newLever = input.nextLine();
-//                    employee.setLever(newLever);
-//                    break;
-//                case 8:
-//                    System.out.println("Please enter position");
-//                    String newPosition = input.nextLine();
-//                    employee.setDateOfBirth(newPosition);
-//                    break;
-//                case 9:
-//                    System.out.println("Please enter position");
-//                    float newSalary = input.nextFloat();
-//                    employee.setSalary(newSalary);
-//                    break;
-////                case 10:
-////                    displayMenu();
-////                    break;
-//            }
         } else {
             System.out.println("Id is not found");
             editEmployee();
