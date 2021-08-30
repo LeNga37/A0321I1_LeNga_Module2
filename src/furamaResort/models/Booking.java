@@ -1,12 +1,15 @@
 package furamaResort.models;
 
-public class Booking {
+import java.io.Serializable;
+
+public class Booking implements Serializable {
     private String bookingId;
     private String firstDay;
     private String lastDay;
     private String customerId;
     private String serviceName;
     private String serviceType;
+    private static final long serialVersionUID = -1187221287063333290L;
 
     public Booking() {
 
@@ -61,13 +64,13 @@ public class Booking {
         this.serviceName = serviceName;
     }
 
-//    public String getServiceType() {
-//        return serviceType;
-//    }
-//
-//    public void setServiceType(String serviceType) {
-//        this.serviceType = serviceType;
-//    }
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
 
     @Override
     public String toString() {

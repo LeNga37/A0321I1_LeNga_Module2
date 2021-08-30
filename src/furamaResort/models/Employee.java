@@ -1,7 +1,5 @@
 package furamaResort.models;
 
-import java.io.Serializable;
-
 public class Employee extends Person{
     private String lever;
     private String position;//vi tri
@@ -52,7 +50,7 @@ public class Employee extends Person{
     public String toString() {
         return
                 this.getId() + "," + this.getName() + "," + this.getDateOfBirth() + "," + this.getGender() + "," +
-                this.getIdentityCardNumber() + "," + this.getPhoneNumber() + "," + this.getEmail() + lever + "," +
+                this.getIdentityCardNumber() + "," + this.getPhoneNumber() + "," + this.getEmail() + ","+ lever + "," +
                 position + "," + salary;
 //                super.toString() +
 //                "lever='" + lever + '\'' +

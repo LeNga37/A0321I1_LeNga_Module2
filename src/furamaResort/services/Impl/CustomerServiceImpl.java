@@ -1,6 +1,7 @@
 package furamaResort.services.Impl;
 
 import furamaResort.controllers.FuramaController;
+import furamaResort.models.Booking;
 import furamaResort.models.Customer;
 import furamaResort.services.CustomerService;
 import furamaResort.utils.ReadWriteFile;
@@ -9,17 +10,24 @@ import furamaResort.utils.RegexData;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class CustomerServiceImpl implements CustomerService {
-    private static List<Customer> customerList = new LinkedList<>();
+     static List<Customer> customerList = new LinkedList<>();
     private static Scanner input = new Scanner(System.in);
     private static final String BIRTHDAY_REGEX = "(^(((0[1-9]|1[0-9]|2[0-8])[/](0[1-9]|1[012]))|((29|30|31)[/]" +
             "(0[13578]|1[02]))|((29|30)[/](0[4,6,9]|11)))[/](19\\d\\d|200[0-1])$)|(^29[/]02[/]((19)" +
             "(04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)|2000)$)";
 
+
+    public List<Customer> sendCustomer(){
+        customerList= (List<Customer>) ReadWriteFile.readFile("D:\\A0321I1_LeNga_Module2\\src\\data\\customer.csv");
+        return customerList;
+    }
+
     @Override
     public void display() {
-//        customerList= (List<Customer>) ReadWriteFile.readFile("D:\\A0321I1_LeNga_Module2\\src\\data\\customer.csv");
+        customerList= (List<Customer>) ReadWriteFile.readFile("D:\\A0321I1_LeNga_Module2\\src\\data\\customer.csv");
         for (Customer customer : customerList) {
             System.out.println(customer);
         }
@@ -27,14 +35,19 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void addNew() {
-//        int id;
-//        do {
-//            System.out.println("Please enter id: ");
-//            id = input.nextInt();
-//        } while (findById(id) != null);
-//        input.skip("\\R");
-        System.out.println("Please enter id: ");
-        String id = input.nextLine();
+        String id;
+        boolean check=true;
+        do {
+            System.out.println("Please enter id: ");
+            id = input.nextLine();
+            if(findById(id) == null){
+                check=false;
+            }else {
+                System.out.println("Id bạn nhâp đã tồn tại");
+            }
+        } while (check);
+//        System.out.println("Please enter id: ");
+//        String id = input.nextLine();
 
         System.out.println("Please enter name");
         String name = input.nextLine();
@@ -65,9 +78,9 @@ public class CustomerServiceImpl implements CustomerService {
         ReadWriteFile.writeFile(customerList,"D:\\A0321I1_LeNga_Module2\\src\\data\\customer.csv");
     }
 
-    public static Customer findById(String id) {
+    public Customer findById(String id) {
         for (Customer customer : customerList) {
-            if (customer.getId() == id) {
+            if (customer.getId().equals(id)) {
                 return customer;
             }
         }

@@ -30,7 +30,7 @@ public class RegexData {
         while (check) {
             try {
                 if (Pattern.matches(regex, value)) {
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                     LocalDate age = LocalDate.parse(value, formatter);
                     LocalDate now = LocalDate.now();
                     int current = Period.between(age, now).getYears();

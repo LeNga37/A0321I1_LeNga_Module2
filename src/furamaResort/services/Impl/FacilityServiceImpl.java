@@ -19,32 +19,25 @@ public class FacilityServiceImpl implements FacilityService {
     private static final String USABLE_AREA_REGEX = "([3-9]\\d|[1-9]\\d{2,})$";
     private static final String POOL_AREA_REGEX = "([3-9]\\d|[1-9]\\d{2,})$";
     private static final String COST_RENT_REGEX = "^(\\d+)(|\\.[0-9]+)$";
-    private static final String MAX_CAPACITY_REGEX = "^(0)[1-9]|(1)[1-9]|(20)&";
+    private static final String MAX_CAPACITY_REGEX = "^((0*[1-9])|1([0-9]))$";//"^([1-9]|([1][0-9])|(20)|(0[1-9]))&";
     private static final String TOTAL_FLOOR_REGEX = "^(\\d+)(|\\.[0-9]+)$";//co d sau \\ khong
     private static final String RENT_TYPE_REGEX = "^[A-Z][a-z]+$";
     private static final String ROOM_STANDARD_REGEX = "^[A-Z][a-z]+$";
     private static final String EMAIL_REGEX = "^[a-z0-9_]+[a-z0-9]@([a-z0-9]+\\.)[a-z]+(|\\.[a-z]+)$";
 
-//    static Villa villa1 = new Villa("Villa", 2343, 3454, 3, "ngay", "vip", 56, 2);
-//    static Villa villa2 = new Villa("Villa", 55555555, 222522222, 5, "ngay", "vip", 90, 3);
-//    static House house1 = new House("House", 2343, 3454, 3, "ngay", "vip", 2);
-//    static House house2 = new House("House", 555555, 22222222, 5, "thang", "vip", 3);
-//    static Room room1 = new Room("Room", 35, 3222, 3, "thang", "wifi");
-//    static Room room2 = new Room("Room", 50, 54656, 3, "nam", "wifi");
 
     @Override
     public void display() {
-//        facilityList.put(villa1, 0);
-//        facilityList.put(villa2, 5);
-//        facilityList.put(house1, 0);
-//        facilityList.put(house2, 5);
-//        facilityList.put(room1, 0);
-//        facilityList.put(room2, 5);
+        facilityList = (Map<Facility, Integer>) ReadWriteFile.readFileMap("D:\\A0321I1_LeNga_Module2\\src\\data\\facility.csv");
         for (Map.Entry<Facility, Integer> facilityList : facilityList.entrySet()) {
             System.out.println("Service " + facilityList.getKey() + "Value: " + facilityList.getValue());
         }
     }
 
+    public Map<Facility, Integer> sendFacility() {
+        facilityList = (Map<Facility, Integer>) ReadWriteFile.readFileMap("D:\\A0321I1_LeNga_Module2\\src\\data\\facility.csv");
+        return facilityList;
+    }
 
     @Override
     public void addNew() {
@@ -81,7 +74,7 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
 
-//    public static Facility findById(String id) {
+    //    public static Facility findById(String id) {
 //        for (Map.Entry<Facility, Integer> facilityList : facilityList.entrySet()) {
 //            if(id.equals(facilityList.getKey().getId())){
 //                return facilityList.getKey();
@@ -89,6 +82,14 @@ public class FacilityServiceImpl implements FacilityService {
 //        }
 //        return null;
 //    }
+    public static Facility findById(String id) {
+        for (Map.Entry<Facility, Integer> facilityList : facilityList.entrySet()) {
+            if (facilityList.getKey().getId().equals(id)) {
+                return facilityList.getKey();
+            }
+        }
+        return null;
+    }
 
     public void addVilla() {
         String id = inputIdVilla();
@@ -98,11 +99,11 @@ public class FacilityServiceImpl implements FacilityService {
         String maxCapacity = inputMaxCapacity();
         String rentType = inputRentType();
         String roomStandard = inputRoomStandard();
-        String poolArea=inputPoolArea();
+        String poolArea = inputPoolArea();
         String totalFloor = inputTotalFloor();
 
-        facilityList.put(new Villa(id, serviceName, usableArea, costRent, maxCapacity, rentType, roomStandard,poolArea, totalFloor), 0);
-        ReadWriteFile.writeFile((Collection) facilityList, "D:\\A0321I1_LeNga_Module2\\src\\data\\facility.csv");
+        facilityList.put(new Villa(id, serviceName, usableArea, costRent, maxCapacity, rentType, roomStandard, poolArea, totalFloor), 0);
+        ReadWriteFile.writeFileMap(facilityList, "D:\\A0321I1_LeNga_Module2\\src\\data\\facility.csv");
         System.out.println("Add new Villa successful");
     }
 
@@ -117,6 +118,7 @@ public class FacilityServiceImpl implements FacilityService {
         String totalFloor = inputTotalFloor();
 
         facilityList.put(new House(id, serviceName, usableArea, costRent, maxCapacity, rentType, roomStandard, totalFloor), 0);
+        ReadWriteFile.writeFileMap(facilityList, "D:\\A0321I1_LeNga_Module2\\src\\data\\facility.csv");
         System.out.println("Add new House successful");
     }
 
@@ -132,22 +134,59 @@ public class FacilityServiceImpl implements FacilityService {
         String freeService = input.nextLine();
 
         facilityList.put(new Room(id, serviceName, usableArea, costRent, maxCapacity, rentType, freeService), 0);
+        ReadWriteFile.writeFileMap(facilityList, "D:\\A0321I1_LeNga_Module2\\src\\data\\facility.csv");
         System.out.println("Add new Room successful");
     }
 
     private String inputIdVilla() {
-        System.out.println("Please enter id");
-        return RegexData.regexString(input.nextLine(), ID_SERVICE_VILLA_REGEX, "Mã dịch vụ của House có định dạng SVVL-YYYY với YYYY là 0-9 ");
+        String id;
+        boolean check=true;
+        do {
+            System.out.println("Please enter id: ");
+            id = input.nextLine();
+            if(findById(id) == null){
+                check=false;
+            }else {
+                System.out.println("Id bạn nhâp đã tồn tại");
+            }
+        } while (check);
+//        System.out.println("Please enter id");
+        return RegexData.regexString(id, ID_SERVICE_VILLA_REGEX, "Mã dịch vụ của House có định dạng SVVL-YYYY với YYYY là 0-9 ");
+//        return RegexData.regexString(input.nextLine(), ID_SERVICE_VILLA_REGEX, "Mã dịch vụ của House có định dạng SVVL-YYYY với YYYY là 0-9 ");
     }
 
     private String inputIdHouse() {
-        System.out.println("Please enter id");
-        return RegexData.regexString(input.nextLine(), ID_SERVICE_HOUSE_REGEX, "Mã dịch vụ của House có định dạng SVHO-YYYY với YYYY là 0-9 ");
+        String id;
+        boolean check=true;
+        do {
+            System.out.println("Please enter id: ");
+            id = input.nextLine();
+            if(findById(id) == null){
+                check=false;
+            }else {
+                System.out.println("Id bạn nhâp đã tồn tại");
+            }
+        } while (check);
+        return RegexData.regexString(id, ID_SERVICE_HOUSE_REGEX, "Mã dịch vụ của House có định dạng SVHO-YYYY với YYYY là 0-9 ");
+//        System.out.println("Please enter id");
+//        return RegexData.regexString(input.nextLine(), ID_SERVICE_HOUSE_REGEX, "Mã dịch vụ của House có định dạng SVHO-YYYY với YYYY là 0-9 ");
     }
 
     private String inputIdRoom() {
-        System.out.println("Please enter id");
-        return RegexData.regexString(input.nextLine(), ID_SERVICE_ROOM_REGEX, "Mã dịch vụ của House có định dạng SVRO-YYYY với YYYY là 0-9 ");
+        String id;
+        boolean check=true;
+        do {
+            System.out.println("Please enter id: ");
+            id = input.nextLine();
+            if(findById(id) == null){
+                check=false;
+            }else {
+                System.out.println("Id bạn nhâp đã tồn tại");
+            }
+        } while (check);
+        return RegexData.regexString(id, ID_SERVICE_ROOM_REGEX, "Mã dịch vụ của House có định dạng SVRO-YYYY với YYYY là 0-9 ");
+//        System.out.println("Please enter id");
+//        return RegexData.regexString(input.nextLine(), ID_SERVICE_ROOM_REGEX, "Mã dịch vụ của House có định dạng SVRO-YYYY với YYYY là 0-9 ");
     }
 
     private String inputServiceName() {

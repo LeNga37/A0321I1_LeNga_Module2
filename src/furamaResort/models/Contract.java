@@ -1,6 +1,8 @@
 package furamaResort.models;
 
-public class Contract {
+import java.io.Serializable;
+
+public class Contract implements Serializable {
     private String contractNumber;
     private String bookingId;
     private String deposit; //tien coc

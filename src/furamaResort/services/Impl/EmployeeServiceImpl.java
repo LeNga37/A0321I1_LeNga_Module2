@@ -12,19 +12,20 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
-    private static List<Employee> employeeList = new ArrayList<Employee>();
+    static List<Employee> employeeList = new ArrayList<>();
     private static Scanner input = new Scanner(System.in);
     private static final String BIRTHDAY_REGEX = "(^(((0[1-9]|1[0-9]|2[0-8])[/](0[1-9]|1[012]))|((29|30|31)[/]" +
             "(0[13578]|1[02]))|((29|30)[/](0[4,6,9]|11)))[/](19\\d\\d|200[0-1])$)|(^29[/]02[/]((19)" +
             "(04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)|2000)$)";
+
     @Override
     public void display() {
 //        List<String[]> listString1 = ReadWriteFile.readFile("D:\\A0321I1_LeNga_Module2\\src\\data\\employee.csv");
 //        if(listString1.isEmpty()){
-//            System.out.println("employeeList trong");
+//            System.out.println("EmployeeList trống, hãy thêm employee vào list");
 //        }else {
 //            for(String[] list:listString1){
-//                System.out.println(list);
+////                System.out.println(list);
 //                Employee employee=new Employee(list[0],list[1],list[2],list[3],list[4],list[5],list[6],list[7],list[8],list[9]);
 //                employeeList.add(employee);
 //            }
@@ -32,26 +33,31 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         employeeList = (List<Employee>) ReadWriteFile.readFile("D:\\A0321I1_LeNga_Module2\\src\\data\\employee.csv");
         for (Employee employee : employeeList) {
-            System.out.println(employee.toString());
+            System.out.println(employee);
         }
     }
 
     @Override
     public void addNew() {
-//        int id;
-//        do {
-//            System.out.println("Please enter id: ");
-//            id = input.nextInt();
-//        } while (findById(id) != null);
-//        input.skip("\\R");
-        System.out.println("Please enter id: ");
-        String id = input.nextLine();
+        String id;
+        boolean check=true;
+        do {
+            System.out.println("Please enter id: ");
+            id = input.nextLine();
+            if(findById(id) == null){
+                check=false;
+            }else {
+                System.out.println("Id bạn nhâp đã tồn tại");
+            }
+        } while (check);
+//        System.out.println("Please enter id: ");
+//        String id = input.nextLine();
 
         System.out.println("Please enter name: ");
         String name = input.nextLine();
 
         System.out.println("Please enter dateOfBirth: ");
-        String dateOfBirth= RegexData.regexAge(input.nextLine(),BIRTHDAY_REGEX);
+        String dateOfBirth = RegexData.regexAge(input.nextLine(), BIRTHDAY_REGEX);
 //        String dateOfBirth = input.nextLine();
 
         System.out.println("Please enter gender: ");
@@ -124,7 +130,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                         break;
                     case 2:
                         System.out.println("Please enter new dateOfBirth");
-                        String newDateOfBirth = RegexData.regexAge(input.nextLine(),BIRTHDAY_REGEX);
+                        String newDateOfBirth = RegexData.regexAge(input.nextLine(), BIRTHDAY_REGEX);
 //                        String newDateOfBirth = input.nextLine();
                         employee.setDateOfBirth(newDateOfBirth);
                         System.out.println("Edit successful!");
@@ -192,20 +198,20 @@ public class EmployeeServiceImpl implements EmployeeService {
             edit();
         }
     }
-}
 
-//    public static void deleteEmployee(){
-//        System.out.println("Please enter id employee");
-//        int id=input.nextInt();
-//        Employee employee=findById(id);
-//        if(employee!=null){
-//            employeeList.remove(findById(id));
-//        }else {
-//            System.out.println("Id is not found");
-//            updateEmployee();
-//        }
-//
-//    }
+    public void deleteEmployee() {
+        System.out.println("Please enter id employee");
+        String id = input.nextLine();
+        Employee employee = findById(id);
+        if (employee != null) {
+            employeeList.remove(findById(id));
+            ReadWriteFile.writeFile(employeeList, "D:\\A0321I1_LeNga_Module2\\src\\data\\employee.csv");
+        } else {
+            System.out.println("Id is not found");
+            deleteEmployee();
+        }
+    }
+}
 
 
 

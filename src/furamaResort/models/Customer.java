@@ -1,8 +1,6 @@
 package furamaResort.models;
 
-import java.io.Serializable;
-
-public class Customer extends Person implements Serializable {
+public class Customer extends Person {
     private String customerType;//kieu khach hang: Diamond, Platinium, Gold, Silver, Member
     private String address;
 

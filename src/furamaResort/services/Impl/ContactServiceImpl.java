@@ -4,6 +4,7 @@ import furamaResort.controllers.FuramaController;
 import furamaResort.models.Booking;
 import furamaResort.models.Contract;
 import furamaResort.services.ContactService;
+import furamaResort.utils.ReadWriteFile;
 
 import java.util.*;
 
@@ -36,18 +37,20 @@ public class ContactServiceImpl implements ContactService {
 
             Contract contract = new Contract(contractNumber, booking.getBookingId(), deposit, totalPayment, customer);
             contractList.add(contract);
+            ReadWriteFile.writeFile(contractList,"D:\\A0321I1_LeNga_Module2\\src\\data\\contract.csv");
             System.out.println("Creat contract successful " + contract);
             System.out.println("---------*****-----------");
         }
     }
     @Override
     public void display() {
+        contractList= (List<Contract>) ReadWriteFile.readFile("D:\\A0321I1_LeNga_Module2\\src\\data\\contract.csv");
         for(Contract contract:contractList){
             System.out.println(contract);
         }
     }
 
-    public static Contract findById(String id) {
+    public Contract findById(String id) {
         for (Contract contract : contractList) {
             if (contract.getContractNumber().equals(id)) {//contract.getContractNumber() == id
                 return contract;
@@ -80,26 +83,31 @@ public class ContactServiceImpl implements ContactService {
                         System.out.println("Please enter new contractNumber");
                         String newContractNumber = input.nextLine();
                         contract.setContractNumber(newContractNumber);
+                        ReadWriteFile.writeFile(contractList,"D:\\A0321I1_LeNga_Module2\\src\\data\\contract.csv");
                         break;
                     case 2:
                         System.out.println("Please enter new bookingId");
                         String newBookingId = input.nextLine();
                         contract.setBookingId(newBookingId);
+                        ReadWriteFile.writeFile(contractList,"D:\\A0321I1_LeNga_Module2\\src\\data\\contract.csv");
                         break;
                     case 3:
                         System.out.println("Please enter deposit");
                         String newDeposit = input.nextLine();
                         contract.setDeposit(newDeposit);
+                        ReadWriteFile.writeFile(contractList,"D:\\A0321I1_LeNga_Module2\\src\\data\\contract.csv");
                         break;
                     case 4:
                         System.out.println("Please enter totalPayment");
                         String newTotalPayment = input.nextLine();
                         contract.setTotalPayment(newTotalPayment);
+                        ReadWriteFile.writeFile(contractList,"D:\\A0321I1_LeNga_Module2\\src\\data\\contract.csv");
                         break;
                     case 5:
                         System.out.println("Please enter newCustomerId");
                         String newCustomerId = input.nextLine();
                         contract.setCustomerId(newCustomerId);
+                        ReadWriteFile.writeFile(contractList,"D:\\A0321I1_LeNga_Module2\\src\\data\\contract.csv");
                         break;
                     case 6:
                         FuramaController.displayMainMenu();

@@ -57,7 +57,8 @@ public class FuramaController {
                     + "1. Display employee list \n"
                     + "2. Add new employee \n"
                     + "3. Edit employee \n"
-                    + "4. Return main menu \n");
+                    + "4. Delete employee \n"
+                    + "5. Return main menu \n");
             try{
                 choice = Integer.parseInt(input.nextLine());
             }catch (NumberFormatException e){
@@ -73,9 +74,14 @@ public class FuramaController {
                     break;
                 case 3:
                     employeeServiceImpl.edit();
-                    break;
                 case 4:
+                    employeeServiceImpl.deleteEmployee();
+                    break;
+                case 5:
                     displayMainMenu();
+                    break;
+                default:
+                    System.out.println("Please enter 1~4");
             }
         } while (true);
     }
@@ -106,6 +112,8 @@ public class FuramaController {
                     break;
                 case 4:
                     displayMainMenu();
+                default:
+                    System.out.println("Please enter 1~4");
             }
         } while (true);
     }
@@ -136,6 +144,8 @@ public class FuramaController {
                     break;
                 case 4:
                     displayMainMenu();
+                default:
+                    System.out.println("Please enter 1~4");
             }
         } while (true);
     }
@@ -175,6 +185,8 @@ public class FuramaController {
                     break;
                 case 6:
                     displayMainMenu();
+                default:
+                    System.out.println("Please enter 1~6");
             }
         } while (true);
     }
