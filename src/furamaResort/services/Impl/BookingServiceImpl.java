@@ -16,18 +16,6 @@ public class BookingServiceImpl implements BookingService {
 //    static List<Customer> customerList = new ArrayList<>();
 //    static Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
 
-//    static {
-//        customerList.add(new Customer("1", "nga", "8/6/1992", "nu", "34567456",
-//                "23546786", "lenga@gmail.com", "vip", "227 hoai thanh"));
-//        customerList.add(new Customer("2", "Nhung", "14/06/1996", "nu", "65576645",
-//                "23423455", "camnhung@gmail.com", "vip", "227 trung nu vuong"));
-//
-//        facilityIntegerMap.put(new Villa("1", "Villa1", "100", "34554", "5",
-//                "year", "vip", "50", "2"), 0);
-//        facilityIntegerMap.put(new Villa("2", "Villa2", "250", "3664554", "10",
-//                "month", "vip", "60", "4"), 0);
-//    }
-
     public Set<Booking> sendBooking() {
         return bookingSet;
     }
