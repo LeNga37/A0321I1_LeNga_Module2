@@ -73,7 +73,9 @@ public class FuramaController {
                     employeeServiceImpl.addNew();
                     break;
                 case 3:
+//                    employeeServiceImpl.findEmployee();
                     employeeServiceImpl.edit();
+                    break;
                 case 4:
                     employeeServiceImpl.deleteEmployee();
                     break;

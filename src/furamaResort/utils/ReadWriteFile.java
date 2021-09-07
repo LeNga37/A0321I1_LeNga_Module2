@@ -3,12 +3,9 @@ package furamaResort.utils;
 import furamaResort.models.Facility;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class ReadWriteFile{
+public class ReadWriteFile {
     public static void writeFile(Collection collection, String address) {
         File file = new File(address);
 
@@ -20,7 +17,7 @@ public class ReadWriteFile{
             }
         }
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream(file,false);
+            FileOutputStream fileOutputStream = new FileOutputStream(file, false);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
             objectOutputStream.writeObject(collection);
@@ -34,12 +31,28 @@ public class ReadWriteFile{
     }
 
     public static Object readFile(String address) {
+//        try {
+//            FileInputStream fileInputStream = new FileInputStream(address);
+//            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+//            Object object = objectInputStream.readObject();
+//            return object;
+//        } catch (IOException | ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+
         try {
             FileInputStream fileInputStream = new FileInputStream(address);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             Object object = objectInputStream.readObject();
+
             return object;
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (EOFException e) {
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         return null;
@@ -56,7 +69,7 @@ public class ReadWriteFile{
             }
         }
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream(file,false);
+            FileOutputStream fileOutputStream = new FileOutputStream(file, false);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
             objectOutputStream.writeObject(map);
@@ -81,6 +94,7 @@ public class ReadWriteFile{
         return null;
     }
 
+    //IO text file
 //    public static void writeFile(Collection collection, String address) {
 //        try {
 //            FileWriter fileWriter = new FileWriter(address);
@@ -111,5 +125,42 @@ public class ReadWriteFile{
 //            e.printStackTrace();
 //        }
 //        return list;
+//    }
+
+    //List
+//    public static void writeFileList(List list, String address) {
+//        File file = new File(address);
+//
+//        if (!file.exists()) {
+//            try {
+//                file.createNewFile();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        try {
+//            FileOutputStream fileOutputStream = new FileOutputStream(file,false);
+//            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+//
+//            objectOutputStream.writeObject(list);
+//
+//            fileOutputStream.close();
+//            objectOutputStream.close();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public static Object readFileList(String address) {
+//        try {
+//            FileInputStream fileInputStream = new FileInputStream(address);
+//            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+//            Object object = objectInputStream.readObject();
+//            return object;
+//        } catch (IOException | ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
 //    }
 }

@@ -3,6 +3,7 @@ package furamaResort.services.Impl;
 import furamaResort.controllers.FuramaController;
 import furamaResort.models.Booking;
 import furamaResort.models.Customer;
+import furamaResort.models.Employee;
 import furamaResort.services.CustomerService;
 import furamaResort.utils.ReadWriteFile;
 import furamaResort.utils.RegexData;
@@ -28,8 +29,16 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void display() {
         customerList= (List<Customer>) ReadWriteFile.readFile("D:\\A0321I1_LeNga_Module2\\src\\data\\customer.csv");
-        for (Customer customer : customerList) {
-            System.out.println(customer);
+//        for (Customer customer : customerList) {
+//            System.out.println(customer);
+//        }
+
+        if (customerList != null) {
+            for (Customer customer : customerList) {
+                System.out.println(customer);
+            }
+        }else {
+            System.out.println("EmployeeList trống, hãy thêm customer vào list");
         }
     }
 

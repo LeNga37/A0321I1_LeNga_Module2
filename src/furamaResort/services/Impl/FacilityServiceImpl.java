@@ -150,8 +150,8 @@ public class FacilityServiceImpl implements FacilityService {
                 System.out.println("Id bạn nhâp đã tồn tại");
             }
         } while (check);
-//        System.out.println("Please enter id");
         return RegexData.regexString(id, ID_SERVICE_VILLA_REGEX, "Mã dịch vụ của House có định dạng SVVL-YYYY với YYYY là 0-9 ");
+//        System.out.println("Please enter id");
 //        return RegexData.regexString(input.nextLine(), ID_SERVICE_VILLA_REGEX, "Mã dịch vụ của House có định dạng SVVL-YYYY với YYYY là 0-9 ");
     }
 

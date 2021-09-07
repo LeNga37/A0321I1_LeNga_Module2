@@ -31,22 +31,32 @@ public class EmployeeServiceImpl implements EmployeeService {
 //            }
 //        }
 
+        //        employeeList= (List<Employee>) ReadWriteFile.readFileList("D:\\A0321I1_LeNga_Module2\\src\\data\\employee.csv");
+
         employeeList = (List<Employee>) ReadWriteFile.readFile("D:\\A0321I1_LeNga_Module2\\src\\data\\employee.csv");
-        for (Employee employee : employeeList) {
-            System.out.println(employee);
+//        for (Employee employee : employeeList) {
+//            System.out.println(employee);
+//        }
+
+        if (employeeList != null) {
+            for (Employee employee : employeeList) {
+                System.out.println(employee);
+            }
+        }else {
+            System.out.println("EmployeeList trống, hãy thêm employee vào list");
         }
     }
 
     @Override
     public void addNew() {
         String id;
-        boolean check=true;
+        boolean check = true;
         do {
             System.out.println("Please enter id: ");
             id = input.nextLine();
-            if(findById(id) == null){
-                check=false;
-            }else {
+            if (findById(id) == null) {
+                check = false;
+            } else {
                 System.out.println("Id bạn nhâp đã tồn tại");
             }
         } while (check);
@@ -81,13 +91,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println("Please enter salary: ");
         String salary = input.nextLine();
 
-//        File file=new File("D:\\A0321I1_LeNga_Module2\\src\\data\\employee.csv")
         employeeList.add(new Employee(id, name, dateOfBirth, gender, identityCardNumber, phoneNumber, email, lever, position, salary));
+//        ReadWriteFile.writeFileList(employeeList, "D:\\A0321I1_LeNga_Module2\\src\\data\\employee.csv");
         ReadWriteFile.writeFile(employeeList, "D:\\A0321I1_LeNga_Module2\\src\\data\\employee.csv");
     }
 
 
     public static Employee findById(String id) {
+        employeeList = (List<Employee>) ReadWriteFile.readFile("D:\\A0321I1_LeNga_Module2\\src\\data\\employee.csv");
         for (Employee employee : employeeList) {
             if (employee.getId().equals(id)) {//employee.getId() == id
                 return employee;
@@ -95,6 +106,44 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         return null;
     }
+
+    public Employee findEmployee() {
+        System.out.println("Nhập id nhân viên muốn tìm kiếm");
+        String id = input.nextLine();
+        boolean check = true;
+        Employee employee = findById(id);
+        while (check) {
+            if (employee != null) {
+                check = false;
+            } else {
+                System.out.println("Id chưa tồn tại, nhập lại id");
+                findEmployee();
+            }
+        }
+        System.out.println(employee);
+        return employee;
+    }
+
+//        do {
+//            Employee employee = findById(id);
+//            if (employee != null) {
+//                return employee;
+//                check = false;
+//            } else {
+//                System.out.println("Id chưa tồn tại, nhập lại id");
+//                findEmployee(id);
+//            }
+////            for (Employee employee : employeeList) {
+////                if (employee.getId().equals(id)) {
+////                    return employee;
+////                    check = false;
+////                } else {
+////                    System.out.println("Id chưa tồn tại, nhập lại id");
+////                    findById(id);
+////                }
+////            }
+//        } while (check);
+//        return null;
 
     @Override
     public void edit() {
@@ -212,7 +261,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 }
-
 
 
 //                        double newSalary = 0;
